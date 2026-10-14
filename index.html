@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111110">
+  <title>SHAWERMA | Real Shawerma, Real Taste</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <div class="floating-food food-one" data-depth="24">
+    <img src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=500&q=85" alt="">
+  </div>
+  <div class="floating-food food-two" data-depth="15">
+    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=400&q=85" alt="">
+  </div>
+  <div class="floating-food food-three" data-depth="30">
+    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=400&q=85" alt="">
+  </div>
+
+  <header class="hero" id="home">
+    <nav class="navbar">
+      <a class="mini-brand" href="#home">
+        <span class="brand-mark">S</span> SHAWERMA
+      </a>
+      <a href="#menu" class="nav-link">EXPLORE MENU ↘</a>
+      <button class="mobile-cart" id="mobileCart">BAG <span id="mobileCartCount">0</span></button>
+    </nav>
+
+    <div class="hero-content" data-depth="8">
+      <div class="logo-symbol">
+        <svg viewBox="0 0 150 170" aria-hidden="true">
+          <path d="M75 7 L75 27 M55 29 Q75 17 95 29 L105 40 Q75 30 45 40Z" fill="none" stroke="currentColor" stroke-width="7"/>
+          <path d="M51 47Q75 38 99 47L94 60L56 60Z M53 66L97 66L89 82L61 82Z M60 87L90 87L84 103L66 103Z M66 108L84 108L78 127L72 127Z" fill="currentColor"/>
+          <path d="M42 49C18 69 22 105 43 125L34 98L48 109L46 82L56 64Z M108 49C132 69 128 105 107 125L116 98L102 109L104 82L94 64Z" fill="currentColor"/>
+          <path d="M64 133L75 150L86 133Z" fill="currentColor"/>
+          <path d="M55 73Q75 79 95 73M59 94Q75 99 91 94M67 114L83 114" fill="none" stroke="#111110" stroke-width="3"/>
+        </svg>
+      </div>
+      <p class="eyebrow">AUTHENTIC FLAME-GRILLED FOOD</p>
+      <h1>SHAWERMA<span>.</span></h1>
+      <p class="hero-subtitle">GOOD FOOD <span>•</span> GREAT MOOD</p>
+      <a href="#menu" class="explore-btn">DISCOVER THE MENU <span>↘</span></a>
+    </div>
+
+    <div class="hero-bottom">
+      <span>FRESH OFF THE GRILL</span>
+      <span>EST. 2026</span>
+      <span>CAIRO, EGYPT</span>
+    </div>
+  </header>
+
+  <main id="menu" class="main-layout">
+    <section class="menu-area">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">MADE FRESH. SERVED HOT.</p>
+          <h2>THE <span>MENU</span></h2>
+        </div>
+        <span class="menu-count">04 SIGNATURE CATEGORIES</span>
+      </div>
+
+      <div class="category-nav" id="categoryNav">
+        <button class="category-tab active" data-category="all">ALL ITEMS</button>
+        <button class="category-tab" data-category="chicken">CHICKEN ROLL</button>
+        <button class="category-tab" data-category="meat">MEAT ROLL</button>
+        <button class="category-tab" data-category="grilled">GRILLED CHICKEN</button>
+        <button class="category-tab" data-category="meals">MEALS</button>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <aside class="cart-panel" id="cartPanel">
+      <div class="cart-heading">
+        <div class="cart-icon">🛒</div>
+        <div>
+          <h2>YOUR CART</h2>
+          <p>YOUR PICKS, YOUR TOTAL</p>
+        </div>
+        <span class="cart-count" id="cartCount">0</span>
+      </div>
+
+      <div class="cart-items" id="cartItems">
+        <div class="empty-cart">
+          <span class="empty-icon">＋</span>
+          <p>YOUR CART IS WAITING</p>
+          <span>Add something delicious.</span>
+        </div>
+      </div>
+
+      <div class="cart-bottom">
+        <div class="total-row">
+          <span>TOTAL</span>
+          <strong id="cartTotal">0 EGP</strong>
+        </div>
+        <button class="clear-btn" id="clearCart">⌫ CLEAR CART</button>
+        <p class="cart-note">ALL ITEMS · 150 EGP EACH</p>
+      </div>
+    </aside>
+  </main>
+
+  <section class="statement">
+    <span class="statement-line"></span>
+    <p>REAL SHAWERMA.<br><span>REAL TASTE.</span></p>
+    <span class="statement-line"></span>
+  </section>
+
+  <footer class="footer" id="contact">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <svg viewBox="0 0 150 170" aria-hidden="true">
+          <path d="M75 7L75 27 M55 29Q75 17 95 29L105 40Q75 30 45 40Z" fill="none" stroke="currentColor" stroke-width="7"/>
+          <path d="M51 47Q75 38 99 47L94 60L56 60Z M53 66L97 66L89 82L61 82Z M60 87L90 87L84 103L66 103Z M66 108L84 108L78 127L72 127Z M64 133L75 150L86 133Z" fill="currentColor"/>
+          <path d="M42 49C18 69 22 105 43 125L34 98L48 109L46 82L56 64Z M108 49C132 69 128 105 107 125L116 98L102 109L104 82L94 64Z" fill="currentColor"/>
+        </svg>
+      </div>
+      <h2>SHAWERMA<span>.</span></h2>
+      <p>GOOD FOOD. GREAT MOOD.</p>
+    </div>
+
+    <div class="footer-info">
+      <a class="contact-item" href="tel:+201234567890">
+        <span class="contact-icon">☎</span>
+        <span><small>CALL US</small><strong>+20 123 456 7890</strong></span>
+      </a>
+      <div class="contact-item">
+        <span class="contact-icon">⌖</span>
+        <span><small>FIND US</small><strong>Cairo, Egypt</strong></span>
+      </div>
+      <a class="contact-item" href="https://www.tiktok.com/" target="_blank" rel="noopener">
+        <span class="contact-icon">♪</span>
+        <span><small>TIKTOK</small><strong>@shawerma.eg</strong></span>
+      </a>
+      <a class="contact-item" href="https://www.facebook.com/" target="_blank" rel="noopener">
+        <span class="contact-icon">f</span>
+        <span><small>FACEBOOK</small><strong>/Shawerma.eg</strong></span>
+      </a>
+      <a class="contact-item" href="https://www.instagram.com/" target="_blank" rel="noopener">
+        <span class="contact-icon">◎</span>
+        <span><small>INSTAGRAM</small><strong>@shawerma.eg</strong></span>
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 SHAWERMA. ALL RIGHTS RESERVED.</span>
+      <a href="#home">BACK TO TOP ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
