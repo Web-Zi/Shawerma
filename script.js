@@ -1,492 +1,249 @@
-```javascript
-/* =========================================
-   SHAWERMA RESTAURANT
-   Complete JavaScript
-========================================= */
-
-"use strict";
-
-// =========================================
-// 1. MENU DATA
-// All products cost 150 EGP
-// =========================================
 
 const PRICE = 150;
 
 const products = [
-  {
-    id: 1,
-    name: "Chicken Shawerma Roll",
-    category: "chicken",
-    description: "Juicy chicken shawerma wrapped in fresh bread.",
-    image:
-      "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=700&q=85"
-  },
-  {
-    id: 2,
-    name: "Meat Shawerma Roll",
-    category: "meat",
-    description: "Delicious seasoned meat shawerma in fresh bread.",
-    image:
-      "https://images.unsplash.com/photo-1544020778-9d9f7c3a8e6a?auto=format&fit=crop&w=700&q=85"
-  },
-  {
-    id: 3,
-    name: "Grilled Chicken - 1 KG",
-    category: "grilled",
-    description: "A full kilogram of grilled chicken.",
-    image:
-      "https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=700&q=85"
-  },
-  {
-    id: 4,
-    name: "Grilled Chicken - 1/2 KG",
-    category: "grilled",
-    description: "Half a kilogram of grilled chicken.",
-    image:
-      "https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=700&q=85"
-  },
-  {
-    id: 5,
-    name: "Grilled Chicken - 1/4 KG",
-    category: "grilled",
-    description: "A quarter kilogram of grilled chicken.",
-    image:
-      "https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=700&q=85"
-  },
-  {
-    id: 6,
-    name: "Chicken Shawerma Meal",
-    category: "meals",
-    description: "A tasty chicken shawerma meal.",
-    image:
-      "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=85"
-  },
-  {
-    id: 7,
-    name: "Meat Shawerma Meal",
-    category: "meals",
-    description: "A flavorful meat shawerma meal.",
-    image:
-      "https://images.unsplash.com/photo-1544020778-9d9f7c3a8e6a?auto=format&fit=crop&w=700&q=85"
-  }
+  // HOT STARTERS
+  { id: 1, name: "Soup of the Day", category: "hot-starter", description: "Fresh soup of the day" },
+  { id: 2, name: "Mozzarella Sticks", category: "hot-starter", description: "Golden crispy mozzarella" },
+  { id: 3, name: "Halloumi", category: "hot-starter", description: "Grilled halloumi cheese" },
+  { id: 4, name: "Chicken Tenders", category: "hot-starter", description: "Crispy chicken strips" },
+  { id: 5, name: "Falafel Hummus", category: "hot-starter", description: "Falafel served with hummus" },
+  { id: 6, name: "Chicken Samosas", category: "hot-starter", description: "Crispy chicken samosas" },
+  { id: 7, name: "Veg Samosa", category: "hot-starter", description: "Vegetable-filled samosas" },
+  { id: 8, name: "Onion Rings", category: "hot-starter", description: "Golden crispy onion rings" },
+  { id: 9, name: "Chicken Wings", category: "hot-starter", description: "Flavorful chicken wings" },
+  { id: 10, name: "Hummus Shawarma Hot Starter", category: "hot-starter", description: "Hummus topped with shawarma" },
+  { id: 11, name: "Mixed Hot Starter", category: "hot-starter", description: "A selection of hot starters" },
+
+  // COLD STARTERS
+  { id: 12, name: "Hummus", category: "cold-starter", description: "Classic creamy hummus" },
+  { id: 13, name: "Baba Ghanooch", category: "cold-starter", description: "Smoky aubergine dip" },
+  { id: 14, name: "Moutabel", category: "cold-starter", description: "Creamy smoky aubergine dip" },
+  { id: 15, name: "Tzatziki Starter", category: "cold-starter", description: "Refreshing yogurt and cucumber dip" },
+  { id: 16, name: "Mixed Cold Starter", category: "cold-starter", description: "A selection of cold starters" },
+
+  // SHAWARMA
+  { id: 17, name: "Chicken Shawarma", category: "shawarma", description: "Seasoned chicken shawarma" },
+  { id: 18, name: "Beef Shawarma", category: "shawarma", description: "Flavorful beef shawarma" },
+  { id: 19, name: "Halloumi", category: "shawarma", description: "Grilled halloumi cheese" },
+  { id: 20, name: "Mix Shawarma", category: "shawarma", description: "A delicious chicken and beef mix" },
+  { id: 21, name: "Falafel", category: "shawarma", description: "Traditional falafel" },
+  { id: 22, name: "BBQ Chicken", category: "shawarma", description: "Chicken with BBQ flavor" },
+
+  // SALADS
+  { id: 23, name: "Fattoush Salad", category: "salads", description: "Fresh salad with crispy bread" },
+  { id: 24, name: "Tabbouleh Salad", category: "salads", description: "Fresh parsley and bulgur salad" },
+  { id: 25, name: "Kings Salad", category: "salads", description: "Fresh mixed salad" },
+
+  // CHIPS & SIDES
+  { id: 26, name: "Fries", category: "sides", description: "Golden crispy fries" },
+  { id: 27, name: "Peri Fries", category: "sides", description: "Fries with peri seasoning" },
+  { id: 28, name: "Rice", category: "sides", description: "Freshly prepared rice" },
+  { id: 29, name: "Bulgur", category: "sides", description: "Seasoned bulgur wheat" },
+  { id: 30, name: "Fresh Lavash Bread", category: "sides", description: "Fresh lavash bread" },
+  { id: 31, name: "Fries & Cheese", category: "sides", description: "Fries topped with cheese" },
+
+  // SHAWARMA LOADED FRIES
+  { id: 32, name: "Chicken Loaded Fries", category: "loaded-fries", description: "Fries topped with chicken shawarma" },
+  { id: 33, name: "Beef Loaded Fries", category: "loaded-fries", description: "Fries topped with beef shawarma" },
+  { id: 34, name: "Lamb Loaded Fries", category: "loaded-fries", description: "Fries topped with lamb" },
+  { id: 35, name: "Mixed Loaded Fries", category: "loaded-fries", description: "Fries topped with mixed shawarma" },
+  { id: 36, name: "Falafel Loaded Fries", category: "loaded-fries", description: "Fries topped with falafel" },
+
+  // KIDS MEALS
+  { id: 37, name: "Kids Nuggets", category: "kids", description: "Chicken nuggets for kids" },
+  { id: 38, name: "Mini Chicken", category: "kids", description: "Mini chicken shawarma" },
+  { id: 39, name: "Mini Beef", category: "kids", description: "Mini beef shawarma" },
+  { id: 40, name: "Mini Lamb", category: "kids", description: "Mini lamb shawarma" },
+  { id: 41, name: "Mini Falafel", category: "kids", description: "Mini falafel meal" },
+  { id: 42, name: "Mini Mixed", category: "kids", description: "Mini mixed shawarma" }
 ];
 
-// =========================================
-// 2. CART DATA
-// =========================================
-
-let cart = [];
-let activeCategory = "all";
-
-// =========================================
-// 3. FIND HTML ELEMENTS
-// =========================================
+const categoryNames = {
+  "hot-starter": "HOT STARTER",
+  "cold-starter": "COLD STARTER",
+  shawarma: "SHAWARMA",
+  salads: "SALAD",
+  sides: "CHIPS & SIDES",
+  "loaded-fries": "LOADED FRIES",
+  kids: "KIDS MEAL"
+};
 
 const productGrid = document.getElementById("productGrid");
-const cartPanel = document.getElementById("cartPanel");
+const categoryNav = document.getElementById("categoryNav");
+const cartItems = document.getElementById("cartItems");
+const cartCount = document.getElementById("cartCount");
+const mobileCartCount = document.getElementById("mobileCartCount");
+const cartTotal = document.getElementById("cartTotal");
+const clearCartButton = document.getElementById("clearCart");
+const mobileCartButton = document.getElementById("mobileCart");
 
-// =========================================
-// 4. FORMAT EGYPTIAN POUNDS
-// =========================================
-
-function formatPrice(amount) {
-  return `${amount.toLocaleString("en-EG")} EGP`;
-}
-
-// =========================================
-// 5. DISPLAY PRODUCTS
-// =========================================
+let selectedCategory = "all";
+let cart = [];
 
 function renderProducts() {
-  if (!productGrid) {
-    console.error('Could not find an element with id="productGrid".');
-    return;
-  }
+  const filteredProducts = selectedCategory === "all"
+    ? products
+    : products.filter(product => product.category === selectedCategory);
 
-  const filteredProducts =
-    activeCategory === "all"
-      ? products
-      : products.filter(
-          (product) => product.category === activeCategory
-        );
-
-  productGrid.innerHTML = "";
-
-  if (filteredProducts.length === 0) {
-    productGrid.innerHTML = `
-      <p class="empty-cart">No products found in this category.</p>
-    `;
-    return;
-  }
-
-  filteredProducts.forEach((product) => {
-    const card = document.createElement("article");
-    card.className = "product-card";
-
-    card.innerHTML = `
-      <div class="product-image">
-        <img
-          src="${product.image}"
-          alt="${product.name}"
-          loading="lazy"
-        >
-      </div>
-
+  productGrid.innerHTML = filteredProducts.map(product => `
+    <article class="product-card">
       <div class="product-info">
-        <h3>${product.name}</h3>
-        <p>${product.description}</p>
+        <span class="product-category-label">
+          ${categoryNames[product.category]}
+        </span>
+
+        <h3 class="product-name">${product.name}</h3>
+
+        <p class="product-description">${product.description}</p>
 
         <div class="product-bottom">
-          <span class="price">${formatPrice(PRICE)}</span>
+          <span class="product-price">${PRICE} EGP</span>
 
           <button
-            class="add-to-cart"
+            class="add-btn"
             type="button"
             data-add="${product.id}"
+            aria-label="Add ${product.name} to cart"
           >
-            + Add
+            + ADD
           </button>
         </div>
       </div>
-    `;
-
-    productGrid.appendChild(card);
-  });
+    </article>
+  `).join("");
 }
 
-// =========================================
-// 6. ADD PRODUCT TO CART
-// =========================================
+function renderCart() {
+  const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const totalPrice = cart.reduce(
+    (sum, item) => sum + item.quantity * PRICE,
+    0
+  );
+
+  cartCount.textContent = totalQuantity;
+  mobileCartCount.textContent = totalQuantity;
+  cartTotal.textContent = `${totalPrice} EGP`;
+
+  if (cart.length === 0) {
+    cartItems.innerHTML = `
+      <div class="empty-cart">
+        <span class="empty-icon">＋</span>
+        <p>YOUR CART IS WAITING</p>
+        <span>Add something delicious.</span>
+      </div>
+    `;
+    return;
+  }
+
+  cartItems.innerHTML = cart.map(item => `
+    <div class="cart-item">
+      <div class="cart-item-info">
+        <strong>${item.name}</strong>
+        <span>${PRICE} EGP each</span>
+      </div>
+
+      <div class="cart-item-actions">
+        <button
+          type="button"
+          class="quantity-btn"
+          data-decrease="${item.id}"
+          aria-label="Remove one ${item.name}"
+        >−</button>
+
+        <span class="item-quantity">${item.quantity}</span>
+
+        <button
+          type="button"
+          class="quantity-btn"
+          data-increase="${item.id}"
+          aria-label="Add one ${item.name}"
+        >+</button>
+      </div>
+
+      <strong class="cart-item-total">${item.quantity * PRICE} EGP</strong>
+    </div>
+  `).join("");
+}
 
 function addToCart(productId) {
-  const product = products.find(
-    (item) => item.id === Number(productId)
-  );
-
+  const product = products.find(item => item.id === productId);
   if (!product) return;
 
-  const existingItem = cart.find(
-    (item) => item.id === product.id
-  );
+  const existingItem = cart.find(item => item.id === productId);
 
   if (existingItem) {
     existingItem.quantity += 1;
   } else {
-    cart.push({
-      id: product.id,
-      name: product.name,
-      price: PRICE,
-      quantity: 1
-    });
+    cart.push({ ...product, quantity: 1 });
   }
 
   renderCart();
-  showToast(`${product.name} added to cart`);
 }
 
-// =========================================
-// 7. CHANGE PRODUCT QUANTITY
-// =========================================
-
 function changeQuantity(productId, amount) {
-  const item = cart.find(
-    (product) => product.id === Number(productId)
-  );
-
+  const item = cart.find(product => product.id === productId);
   if (!item) return;
 
   item.quantity += amount;
 
   if (item.quantity <= 0) {
-    cart = cart.filter(
-      (product) => product.id !== Number(productId)
-    );
+    cart = cart.filter(product => product.id !== productId);
   }
 
   renderCart();
 }
 
-// =========================================
-// 8. REMOVE PRODUCT
-// =========================================
+// Category filtering
+categoryNav.addEventListener("click", event => {
+  const button = event.target.closest("[data-category]");
+  if (!button) return;
 
-function removeFromCart(productId) {
-  cart = cart.filter(
-    (item) => item.id !== Number(productId)
-  );
+  selectedCategory = button.dataset.category;
 
-  renderCart();
-}
-
-// =========================================
-// 9. CALCULATE TOTAL
-// =========================================
-
-function calculateTotal() {
-  return cart.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
-  );
-}
-
-function calculateItemCount() {
-  return cart.reduce(
-    (total, item) => total + item.quantity,
-    0
-  );
-}
-
-// =========================================
-// 10. DISPLAY CART
-// =========================================
-
-function renderCart() {
-  if (!cartPanel) {
-    console.error('Could not find an element with id="cartPanel".');
-    return;
-  }
-
-  const total = calculateTotal();
-  const count = calculateItemCount();
-
-  cartPanel.innerHTML = `
-    <h2>
-      Your Cart
-      <span class="cart-count">(${count})</span>
-    </h2>
-
-    ${
-      cart.length === 0
-        ? `
-          <p class="empty-cart">
-            Your cart is empty. Add something delicious!
-          </p>
-        `
-        : `
-          <div class="cart-items">
-            ${cart
-              .map(
-                (item) => `
-                  <div class="cart-item">
-                    <div>
-                      <h3>${item.name}</h3>
-                      <p>
-                        ${formatPrice(item.price)} each
-                      </p>
-                    </div>
-
-                    <div class="cart-controls">
-                      <button
-                        type="button"
-                        data-decrease="${item.id}"
-                        aria-label="Decrease ${item.name} quantity"
-                      >−</button>
-
-                      <span>${item.quantity}</span>
-
-                      <button
-                        type="button"
-                        data-increase="${item.id}"
-                        aria-label="Increase ${item.name} quantity"
-                      >+</button>
-
-                      <button
-                        type="button"
-                        class="remove-item"
-                        data-remove="${item.id}"
-                        aria-label="Remove ${item.name}"
-                      >×</button>
-                    </div>
-
-                    <strong>
-                      ${formatPrice(item.price * item.quantity)}
-                    </strong>
-                  </div>
-                `
-              )
-              .join("")}
-          </div>
-        `
-    }
-
-    <div class="cart-total">
-      <span>Total</span>
-      <span>${formatPrice(total)}</span>
-    </div>
-  `;
-}
-
-// =========================================
-// 11. CATEGORY FILTERS
-// =========================================
-
-function setCategory(category) {
-  activeCategory = category;
-  renderProducts();
-
-  document
-    .querySelectorAll(
-      ".category-tabs button, .categories button, " +
-      ".category-filters button, .category-btn, .filter-btn"
-    )
-    .forEach((button) => {
-      const buttonCategory =
-        button.dataset.category ||
-        button.dataset.filter ||
-        button.getAttribute("data-category");
-
-      button.classList.toggle(
-        "active",
-        buttonCategory === category ||
-          (category === "all" &&
-            button.textContent.trim().toLowerCase() === "all")
-      );
-    });
-}
-
-// =========================================
-// 12. CLICK HANDLING
-// =========================================
-
-// Event delegation keeps the buttons working
-// after products and cart contents are rendered.
-
-document.addEventListener("click", (event) => {
-  const addButton = event.target.closest("[data-add]");
-
-  if (addButton) {
-    addToCart(addButton.dataset.add);
-    return;
-  }
-
-  const increaseButton = event.target.closest("[data-increase]");
-
-  if (increaseButton) {
-    changeQuantity(increaseButton.dataset.increase, 1);
-    return;
-  }
-
-  const decreaseButton = event.target.closest("[data-decrease]");
-
-  if (decreaseButton) {
-    changeQuantity(decreaseButton.dataset.decrease, -1);
-    return;
-  }
-
-  const removeButton = event.target.closest("[data-remove]");
-
-  if (removeButton) {
-    removeFromCart(removeButton.dataset.remove);
-    return;
-  }
-
-  const categoryButton = event.target.closest(
-    ".category-tabs button, .categories button, " +
-    ".category-filters button, .category-btn, .filter-btn"
-  );
-
-  if (categoryButton) {
-    const category =
-      categoryButton.dataset.category ||
-      categoryButton.dataset.filter ||
-      (categoryButton.textContent.trim().toLowerCase() === "all"
-        ? "all"
-        : null);
-
-    if (category) {
-      setCategory(category);
-    }
-  }
-});
-
-// =========================================
-// 13. SMALL TOAST MESSAGE
-// =========================================
-
-let toastTimeout;
-
-function showToast(message) {
-  let toast = document.getElementById("toastMessage");
-
-  if (!toast) {
-    toast = document.createElement("div");
-    toast.id = "toastMessage";
-
-    Object.assign(toast.style, {
-      position: "fixed",
-      bottom: "25px",
-      left: "50%",
-      transform: "translateX(-50%)",
-      zIndex: "9999",
-      maxWidth: "90%",
-      padding: "12px 20px",
-      borderRadius: "12px",
-      background: "#e7b65c",
-      color: "#17120a",
-      fontWeight: "800",
-      fontSize: "14px",
-      textAlign: "center",
-      boxShadow: "0 8px 25px rgba(0,0,0,.3)",
-      opacity: "0",
-      transition: "opacity .25s ease"
-    });
-
-    document.body.appendChild(toast);
-  }
-
-  toast.textContent = message;
-  toast.style.opacity = "1";
-
-  clearTimeout(toastTimeout);
-
-  toastTimeout = setTimeout(() => {
-    toast.style.opacity = "0";
-  }, 2000);
-}
-
-// =========================================
-// 14. INTERACTIVE 3D FOOD PARALLAX
-// =========================================
-
-const floatingFoods = document.querySelectorAll(".floating-food");
-
-let pointerX = 0;
-let pointerY = 0;
-let parallaxFrame = null;
-
-function updateParallax() {
-  floatingFoods.forEach((food) => {
-    const depth = Number(food.dataset.depth || 15);
-
-    const moveX = pointerX * (depth / 100);
-    const moveY = pointerY * (depth / 100);
-
-    food.style.marginLeft = `${moveX}px`;
-    food.style.marginTop = `${moveY}px`;
+  categoryNav.querySelectorAll(".category-tab").forEach(tab => {
+    tab.classList.toggle("active", tab === button);
   });
 
-  parallaxFrame = null;
-}
+  renderProducts();
+});
 
-document.addEventListener("pointermove", (event) => {
-  // Disable the mouse effect on touch-sized screens.
-  if (window.innerWidth <= 720) return;
+// Add products to cart
+productGrid.addEventListener("click", event => {
+  const button = event.target.closest("[data-add]");
+  if (!button) return;
 
-  pointerX = (event.clientX / window.innerWidth - 0.5) * 30;
-  pointerY = (event.clientY / window.innerHeight - 0.5) * 30;
+  addToCart(Number(button.dataset.add));
+});
 
-  if (parallaxFrame === null) {
-    parallaxFrame = requestAnimationFrame(updateParallax);
+// Increase or decrease cart quantities
+cartItems.addEventListener("click", event => {
+  const increaseButton = event.target.closest("[data-increase]");
+  const decreaseButton = event.target.closest("[data-decrease]");
+
+  if (increaseButton) {
+    changeQuantity(Number(increaseButton.dataset.increase), 1);
+  }
+
+  if (decreaseButton) {
+    changeQuantity(Number(decreaseButton.dataset.decrease), -1);
   }
 });
 
-// =========================================
-// 15. START THE WEBSITE
-// =========================================
+// Clear the entire cart
+clearCartButton.addEventListener("click", () => {
+  cart = [];
+  renderCart();
+});
 
+// Scroll to the cart when the mobile bag button is clicked
+mobileCartButton.addEventListener("click", () => {
+  document.getElementById("cartPanel").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+});
+
+// Initial display
 renderProducts();
 renderCart();
-
-console.log("Shawerma menu loaded successfully!");
-```
